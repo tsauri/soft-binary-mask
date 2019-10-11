@@ -67,7 +67,7 @@ model = torch.load(args.pruned, map_location='cpu')
 #     model.cuda()
 base_flops = print_model_param_flops(model, 32, multiply_adds=True, freebie=False) # only either 32 or 16 bit
 
-torch.quantization.quantize(model, run, None)
+model = torch.quantization.quantize(model, run, None)
 
 print(model)
 print("-"*80)
