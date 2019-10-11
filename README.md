@@ -8,7 +8,7 @@
 - Used Stochastic Weight Averaging to boost accuracy, start averaging at epoch `--swa-start`
 - Tried using Confidence Penalty `--confp`, Dropout `--d`, and Label Smoothing `--lseps`, but negligible effect, so set them to 0
 
-Pre-trained model are in `chkpt/`
+Pre-trained models are in `chkpt/`
 
 ## To reproduce models
 Run this command to train from scratch. Training takes almost 12 hours. Single GPU only.
