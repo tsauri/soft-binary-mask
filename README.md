@@ -13,7 +13,8 @@ Pre-trained model are in `chkpt/`
 ## To reproduce models
 Run this command to train from scratch. Training takes almost 12 hours. Single GPU only.
 ```shell
-python -u main.py --dataset cifar100 --arch wideresnet --epochs 300 --seed 1 --batch-size 64      --lr 1e-2 --wd 1e-4 --momentum 0.9   --test-batch-size 64 --depth 34 --wf 9 --d 0 --lseps 0.0 --confp 0.0   --target 0.4  --wg 30 --tw 10 --wme 50  --mwd 5e-4  --save log-k7d1re1 --swa-start 161
+python -u mainmce.py --dataset cifar100 --arch wideresnet         --epochs 300 --seed 1 --batch-size 64      --lr 1e-2 --wd 1e-4 --momentum 0.9   --test-batch-size 64 --depth 34 --wf 9 --d 0 --lseps 0.0 --confp 0.0   --target 0.5  --wg 30 --tw 10 --wme 50  --mwd 5e-4  --save log-w1 --swa-start 90
+
 
 ```
 Pruned model `pruned_model.pth.tar` is stored in `--save` folder `log-w1`
