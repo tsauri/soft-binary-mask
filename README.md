@@ -22,11 +22,12 @@ Pruned model `pruned_model.pth.tar` is stored in `--save` folder `log-w1`
 - Pretrained models are in `chkpt/` folder.
 
 - eval.py is old eval code, for 16-bit  `--freebie`.
-- eval_quantize.py is final eval code, uses Pytorch 1.3 quantization (CPU-only, very slow eval)
+- eval_quantize.py is final eval code, uses Pytorch 1.3 quantization
+- Both uses CPU
 - `compute_flops.py` is the code to calculate FLOPs
 - `base_params = sum(p.numel() for name, p in model.named_parameters())`
 
-)
+
 
 This is the final submission. If 8-bit quantization is valid
 ```
@@ -50,7 +51,7 @@ Test set: Average loss: 1.2146, Accuracy: 8019/10000 (80.19%)
 
 Otherwise use fallback freebie model (bigger)
 ```
-`python eval.py --pruned chkpt/pruned_model.pth.tar  --freebie --no-cuda`
+python eval.py --pruned chkpt/pruned_model.pth.tar  --freebie
 
 --------------------------------------------------------------------------------
 Freebie 16-bit is True
