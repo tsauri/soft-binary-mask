@@ -59,7 +59,8 @@ else:
         batch_size=args.batch_size, shuffle=True, **kwargs)
 
 assert args.pruned
-model = torch.load(args.pruned)
+# model = torch.load(args.pruned)
+model = torch.load(args.pruned, map_location='cpu')
 
 if args.cuda:
     model.cuda()
