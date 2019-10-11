@@ -10,7 +10,6 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 from torch.autograd import Variable
 from compute_flops import print_model_param_flops
-import torch.quantize
 import models
 import time
 import numpy as np

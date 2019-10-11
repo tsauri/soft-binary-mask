@@ -20,30 +20,30 @@ Pruned model `pruned_model.pth.tar` is stored in `--save` folder `log-w1`
 
 ## To evaluate models
 - Pretrained models are in `chkpt/` folder.
-- Mult ops and params are halved to be 16-bit with `--freebie`.
-- `--half` to use Pytorch half-precision.
-- `--nbit N` to specify bit length, params will be divided by `32/nbit`
+
+- eval.py is old eval code, for 16-bit  `--freebie`.
+- eval_quantize.py is final eval code, uses Pytorch 1.3 quantization (CPU-only, very slow eval)
 - `compute_flops.py` is the code to calculate FLOPs
 - `base_params = sum(p.numel() for name, p in model.named_parameters())`
 
 )
 
-
+This is teh final submission, if 
 ```
-python eval_quantize.py --pruned chkpt/pruned_model.pth.tar
+python eval_quantize.py --pruned chkpt/pruned_model2.pth.tar
 
 --------------------------------------------------------------------------------
 params count /  4
-original param count 23181353 @ 23.18 M
-quantized param count 5795338 @ 5.80 M
-original FLOPs count 10625795100.0 @ 10.63 GFLOPs
-FLOPs count 2656448775.0 @ 2.66 GFLOPs
+original param count 20696798 @ 20.70 M
+8-bit quantized param count 5174199 @ 5.17 M
+original FLOPs count 10193691876.0 @ 10.19 GFLOPs
+8-bit FLOPs count 2548422969.0 @ 2.55 GFLOPs
 --------------------------------------------------------------------------------
 Reference param count 36500000.0 @ 36.50 M
 Reference FLOPs count 10490000000.0 @ 10.49 GFLOPs
 --------------------------------------------------------------------------------
-Score = Param/refParam + FLOPs/refFLOPs = 0.15878 + 0.25324 = 0.41201
+Score = Param/refParam + FLOPs/refFLOPs = 0.14176 + 0.24294 = 0.38470
 --------------------------------------------------------------------------------
+Test set: Average loss: 1.2146, Accuracy: 8019/10000 (80.19%)
 
-Test set: Average loss: 1.2810, Accuracy: 8044/10000 (80.44%)
 ```
