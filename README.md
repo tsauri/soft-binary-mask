@@ -53,22 +53,4 @@ Test set: Average loss: 1.2146, Accuracy: 8019/10000 (80.19%)
 Otherwise use fallback evaluation
 ```
 python eval.py --pruned chkpt/pruned_model2.pth.tar  --freebie --half
-
- --------------------------------------------------------------------------------
- Freebie 16-bit is True
- Pytorch half-precision is True
- Weight-bit is 32
- params count /  2
- original param count 23181353 @ 23.18 M
- quantized param count 11590676 @ 11.59 M
- original FLOPs count 10625795100.0 @ 10.63 GFLOPs
- FLOPs count 5318413340.0 @ 5.32 GFLOPs
- --------------------------------------------------------------------------------
- Reference param count 36500000.0 @ 36.50 M
- Reference FLOPs count 10490000000.0 @ 10.49 GFLOPs
- --------------------------------------------------------------------------------
- Score = Param/refParam + FLOPs/refFLOPs = 0.31755 + 0.50700 = 0.82455
- --------------------------------------------------------------------------------
-
- Test set: Average loss: 1.2811, Accuracy: 8046/10000 (80.46%)
 ```
